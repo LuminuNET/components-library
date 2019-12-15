@@ -1,10 +1,10 @@
 {
 	"name": "@luminu/components",
-	"version": "0.1.0",
+	"version": "0.1.2",
 	"main": "./dist/luminu.common.js",
 	"scripts": {
 		"serve": "vue-cli-service serve",
-		"build": "vue-cli-service build --target lib --name luminu ./src/main.ts",
+		"build": "vue-cli-service build --target lib --name luminu ./src/index.ts",
 		"lint": "vue-cli-service lint --fix"
 	},
 	"files": [

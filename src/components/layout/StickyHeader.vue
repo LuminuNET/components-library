@@ -3,14 +3,13 @@
 		<div class="container">
 			<ul>
 				<li v-for="(link, index) in links" :key="index">
-					<div
-						class="li-container wrapper"
-						:class="{ active: active === index }"
-					>
+					<div class="li-container wrapper" :class="{ active: active === index }">
 						<div class="short-link">
-							<a @click="openLink(link)">{{
+							<a @click="openLink(link)">
+								{{
 								$t('navigation.' + link.name)
-							}}</a>
+								}}
+							</a>
 						</div>
 						<div
 							class="dropdown-activator"
@@ -30,7 +29,7 @@
 								<path
 									fill="white"
 									d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
-								></path>
+								/>
 							</svg>
 						</div>
 					</div>
@@ -38,9 +37,7 @@
 
 				<slot>
 					<li class="user-auth">
-						<p>
-							{{ $t('navigation.login') }}
-						</p>
+						<p>{{ $t('navigation.login') }}</p>
 					</li>
 				</slot>
 			</ul>
@@ -49,11 +46,11 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
-import { TLink } from '@luminu/types';
+import Vue from "vue";
+import { TLink } from "@luminu/types";
 
 export default Vue.extend({
-	name: 'LmStickyHeader',
+	name: "LmStickyHeader",
 	props: {
 		links: {
 			type: Array,
@@ -64,33 +61,10 @@ export default Vue.extend({
 			default: -1
 		}
 	},
-	data: () => ({
-		links: [
-			{
-				name: 'overview',
-				to: '/',
-				isExternal: false,
-				hasChildren: false
-			},
-			{
-				name: 'home',
-				to: 'https://luminu.net/',
-				isExternal: true,
-				hasChildren: false
-			},
-			{
-				name: 'forum',
-				to: 'https://luminu.net/forums',
-				isExternal: true,
-				hasChildren: false
-			}
-		],
-		active: -1
-	}),
 	methods: {
 		openLink(link: TLink): void {
 			if (link.isExternal) {
-				window.open(link.to, '_blank');
+				window.open(link.to, "_blank");
 			} else {
 				// @ts-ignore
 				(this as any).$router.push({ path: link.to });
@@ -101,7 +75,7 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
-@import '~@luminu/ui-kit/scss/_variables.scss';
+@import "~@luminu/ui-kit/scss/_variables.scss";
 
 nav {
 	position: sticky;
