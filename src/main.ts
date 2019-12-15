@@ -1,12 +1,17 @@
-import Vue from "vue";
-import App from "./App.vue";
-import router from "./router";
-import store from "./store";
+import Vue from 'vue';
+
+// Base components
+import LmCard from '@/components/base/Card.vue';
+
+// Layout components
+import LmHeader from '@/components/layout/Header.vue';
+import LmStickyHeader from '@/components/layout/StickyHeader.vue';
 
 Vue.config.productionTip = false;
 
-new Vue({
-  router,
-  store,
-  render: h => h(App)
-}).$mount("#app");
+const Components = {
+	LmCard,
+
+	LmHeader,
+	LmStickyHeader
+};
