@@ -1,6 +1,6 @@
 {
 	"name": "@luminu/components",
-	"version": "0.1.2",
+	"version": "0.1.4",
 	"main": "./dist/luminu.common.js",
 	"scripts": {
 		"serve": "vue-cli-service serve",

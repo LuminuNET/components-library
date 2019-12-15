@@ -3,12 +3,13 @@
 		<div class="container">
 			<ul>
 				<li v-for="(link, index) in links" :key="index">
-					<div class="li-container wrapper" :class="{ active: active === index }">
+					<div
+						class="li-container wrapper"
+						:class="{ active: active === index }"
+					>
 						<div class="short-link">
 							<a @click="openLink(link)">
-								{{
-								$t('navigation.' + link.name)
-								}}
+								{{ $t('navigation.' + link.name) }}
 							</a>
 						</div>
 						<div
@@ -46,11 +47,11 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-import { TLink } from "@luminu/types";
+import Vue from 'vue';
+import { TLink } from '@luminu/types';
 
 export default Vue.extend({
-	name: "LmStickyHeader",
+	name: 'LmStickyHeader',
 	props: {
 		links: {
 			type: Array,
@@ -64,7 +65,7 @@ export default Vue.extend({
 	methods: {
 		openLink(link: TLink): void {
 			if (link.isExternal) {
-				window.open(link.to, "_blank");
+				window.open(link.to, '_blank');
 			} else {
 				// @ts-ignore
 				(this as any).$router.push({ path: link.to });
@@ -75,7 +76,7 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
-@import "~@luminu/ui-kit/scss/_variables.scss";
+@import '~@luminu/ui-kit/scss/_variables.scss';
 
 nav {
 	position: sticky;
