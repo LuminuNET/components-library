@@ -4,11 +4,8 @@
 			<div class="container grid">
 				<div class="card">
 					<h2 class="footer__title">{{ $t('footer.partner') }}</h2>
-					<a href="https://www.cytooxien.de" target="_blank" rel="noopener noreferrer">
-						<img src="@/assets/cytooxien_banner.png" class="footer__img" />
-					</a>
-					<a href="https://nitra.do/luminu" target="_blank" rel="noopener noreferrer">
-						<img src="@/assets/nitrado_banner.png" class="footer__img" />
+					<a v-for="(partner, index) in partners" :key="index" :href="partner.to" target="_blank">
+						<img :src="partner.image" class="footer__img" />
 					</a>
 				</div>
 				<div class="card">
@@ -292,7 +289,8 @@ export default Vue.extend({
 			this.$i18n.locale = getLocale() + "";
 			this.currentLocale = getLocale() === "de" ? "Deutsch" : "English";
 		}
-	}
+	},
+	props: ["partners"]
 });
 </script>
 

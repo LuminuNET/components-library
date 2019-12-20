@@ -1,6 +1,6 @@
 {
 	"name": "@luminu/components",
-	"version": "0.2.0",
+	"version": "0.2.2",
 	"main": "./dist/luminu.common.js",
 	"types": "./index.d.ts",
 	"scripts": {

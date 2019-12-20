@@ -5,7 +5,7 @@
 		<div class="view container">
 			<lm-card class="fake-content"></lm-card>
 		</div>
-		<lm-footer />
+		<lm-footer :partners="partners" />
 	</div>
 </template>
 
@@ -36,6 +36,12 @@ export default Vue.extend({
 				to: "https://example.org",
 				isExternal: true,
 				hasChildren: false
+			}
+		],
+		partners: [
+			{
+				to: "https://cytooxien.de",
+				image: require("@/assets/cytooxien_banner.png")
 			}
 		]
 	})
