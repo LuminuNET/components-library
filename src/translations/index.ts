@@ -4,7 +4,7 @@ import Vue from 'vue';
 import en from './en';
 import de from './de';
 
-import { getLocale } from '@/common/locale.service';
+import { getLocale } from '@luminu/core/common/locale.service';
 
 Vue.use(VueI18n);
 
@@ -15,7 +15,7 @@ const messages = {
 
 const i18n = new VueI18n({
 	fallbackLocale: 'en',
-	locale: getLocale() === null ? 'en' : getLocale() + '',
+	locale: getLocale() === null ? 'de' : getLocale() + '',
 	messages
 });
 

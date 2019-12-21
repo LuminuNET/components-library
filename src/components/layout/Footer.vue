@@ -271,14 +271,14 @@ import Vue from "vue";
 import {
 	getLocale,
 	toggleLocale as toggleLocaleStorage
-} from "../../common/locale.service";
+} from "@luminu/core/common/locale.service";
 
 export default Vue.extend({
 	name: "LmFooter",
 	data: () => ({
 		currentLocale:
 			getLocale() === null
-				? "English"
+				? "Deutsch"
 				: getLocale() === "de"
 				? "Deutsch"
 				: "English"

@@ -1,6 +1,6 @@
 {
 	"name": "@luminu/components",
-	"version": "0.2.2",
+	"version": "0.2.3",
 	"main": "./dist/luminu.common.js",
 	"types": "./index.d.ts",
 	"scripts": {
@@ -16,6 +16,7 @@
 		"*.js"
 	],
 	"dependencies": {
+		"@luminu/core": "^0.1.0",
 		"@luminu/types": "^1.0.0",
 		"@luminu/ui-kit": "^0.2.0",
 		"core-js": "^3.4.3",
