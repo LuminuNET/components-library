@@ -12,6 +12,14 @@
 
 ## Documentation
 
+### Button
+#### Props
+| Name | required/default | type   | description                             |
+| :--- | :--------------- | :----- | :-------------------------------------- |
+| text | true             | String | Sets the button's text                  |
+| size | false / normal   | String | Sets the button's size (small, big)     |
+| type | false / normal   | String | Sets the button's type (success, error) |
+
 ### Seperator
 
 #### Props

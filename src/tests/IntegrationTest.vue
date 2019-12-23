@@ -9,6 +9,9 @@
 				<p class="description">Helllooooooo there</p>
 				<lm-seperator :mtop="20" :mbottom="10" />
 				<h2 class="title">Nice okay</h2>
+				<div class="btn-group">
+					<lm-button text="Hello" type="error" size="big" />
+				</div>
 			</lm-card>
 		</div>
 		<lm-footer :partners="partners" />
@@ -23,6 +26,7 @@ import LmFooter from "@/components/layout/Footer.vue";
 import LmCard from "@/components/base/Card.vue";
 import LmNotification from "@/components/base/Notification.vue";
 import LmSeperator from "@/components/base/Seperator.vue";
+import LmButton from "@/components/base/Button.vue";
 
 export default Vue.extend({
 	components: {
@@ -31,7 +35,8 @@ export default Vue.extend({
 		LmCard,
 		LmFooter,
 		LmNotification,
-		LmSeperator
+		LmSeperator,
+		LmButton
 	},
 	mounted() {
 		// setInterval(() => {
@@ -72,5 +77,14 @@ export default Vue.extend({
 .fake-content {
 	height: 400px;
 	margin-bottom: 30px;
+}
+
+.btn-group {
+	display: flex;
+	justify-content: flex-end;
+
+	> div {
+		margin-left: 5px;
+	}
 }
 </style>
