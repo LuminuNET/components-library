@@ -18,8 +18,8 @@
 
 | Name    | required/default | type   | description                             |
 | :------ | :--------------- | :----- | :-------------------------------------- |
-| mTop    | false / 5        | Number | Sets the top margin of the seperator    |
-| mBottom | false / 5        | Number | Sets the bottom margin of the seperator |
+| mtop    | false / 5        | Number | Sets the top margin of the seperator    |
+| mbottom | false / 5        | Number | Sets the bottom margin of the seperator |
 
 ### Notification
 
