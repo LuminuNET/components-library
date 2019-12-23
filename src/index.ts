@@ -1,6 +1,7 @@
 // Base components
 export { default as LmCard } from '@/components/base/Card.vue';
 export { default as LmNotification } from '@/components/base/Notification.vue';
+export { default as LmSeperator } from '@/components/base/Seperator.vue';
 
 // Layout components
 export { default as LmHeader } from '@/components/layout/Header.vue';
