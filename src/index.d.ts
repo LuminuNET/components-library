@@ -7,3 +7,4 @@ export const LmFooter: VueConstructor<Vue>;
 export const LmCard: VueConstructor<Vue>;
 export const LmNotification: VueConstructor<Vue>;
 export const LmSeperator: VueConstructor<Vue>;
+export const LmButton: VueConstructor<Vue>;
