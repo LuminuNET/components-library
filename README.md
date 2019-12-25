@@ -13,7 +13,9 @@
 ## Documentation
 
 ### Button
+
 #### Props
+
 | Name | required/default | type   | description                             |
 | :--- | :--------------- | :----- | :-------------------------------------- |
 | text | true             | String | Sets the button's text                  |
@@ -33,11 +35,12 @@
 
 #### Props
 
-| Name    | required/default | type    | description                                    |
-| :------ | :--------------- | :------ | :--------------------------------------------- |
-| message | true             | String  | Sets the message that will be displayed        |
-| active  | true             | Boolean | Sets it's activity state                       |
-| timeout | false / 2500     | Number  | Sets the timeout when it should fade out again |
+| Name     | required/default | type    | description                                     |
+| :------- | :--------------- | :------ | :---------------------------------------------- |
+| message  | true             | String  | Sets the message that will be displayed         |
+| active   | true             | Boolean | Sets it's activity state                        |
+| timeout  | false / 2500     | Number  | Sets the timeout when it should fade out again  |
+| fontSize | false / 24       | Number  | Sets the font size for the notification message |
 
 ### Card
 
