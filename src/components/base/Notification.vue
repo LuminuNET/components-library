@@ -10,8 +10,7 @@
 .notification {
 	position: fixed;
 	top: 0;
-	left: 0;
-	right: 0;
+	width: 100%;
 	font-size: 24px;
 	color: #202020;
 	background: rgba(226, 226, 226, 0.9);
@@ -21,12 +20,10 @@
 	transition: all 0.25s ease, -xf-opacity 0.25s ease;
 	overflow-y: hidden;
 	opacity: 0;
-	height: 0;
 	z-index: -1;
 
 	&.active {
 		opacity: 1;
-		height: 73.6px;
 		padding-top: 20px;
 		padding-bottom: 20px;
 		z-index: 10000;

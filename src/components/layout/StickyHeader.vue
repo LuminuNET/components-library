@@ -3,7 +3,7 @@
 		<lm-notification
 			message="Dieses Feature wird demnächst hinzugefügt."
 			:active="notificationActive"
-			:fontSize="20"
+			:fontSize="30"
 		/>
 		<div class="container">
 			<ul>
