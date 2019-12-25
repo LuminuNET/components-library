@@ -139,9 +139,10 @@ footer {
 			width: 100%;
 			display: flex;
 			justify-content: space-between;
+			flex-wrap: wrap;
 
 			.card {
-				width: 25%;
+				flex: 25%;
 
 				.footer__title {
 					font-size: 16px;
@@ -217,6 +218,15 @@ footer {
 							}
 						}
 					}
+				}
+			}
+		}
+
+		@media screen and (max-width: 1080px) {
+			.grid {
+				.card {
+					flex: 50%;
+					margin-top: 25px;
 				}
 			}
 		}
