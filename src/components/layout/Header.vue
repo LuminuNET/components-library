@@ -9,16 +9,16 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import Vue from "vue";
 
 export default Vue.extend({
-	name: 'LmHeader',
-	props: ['image']
+	name: "LmHeader",
+	props: ["image"]
 });
 </script>
 
 <style lang="scss" scoped>
-@import '~@luminu/ui-kit/scss/_variables.scss';
+@import "~@luminu/ui-kit/scss/_variables.scss";
 
 header {
 	background-color: $lmColor1;
@@ -34,6 +34,10 @@ header {
 			width: 575px;
 			height: 255px;
 		}
+	}
+
+	@media screen and (max-width: 1080px) {
+		display: none;
 	}
 }
 </style>
