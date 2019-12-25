@@ -1,5 +1,5 @@
 <template>
-	<div ref="notification" class="notification">
+	<div ref="notification" class="notification" :style="{ fontSize: fontSize + 'px' }">
 		<slot>
 			<p class="notification__content">{{ message }}</p>
 		</slot>
@@ -12,7 +12,6 @@
 	top: 0;
 	left: 0;
 	right: 0;
-	z-index: 9009000000000;
 	font-size: 24px;
 	color: #202020;
 	background: rgba(226, 226, 226, 0.9);
@@ -23,12 +22,14 @@
 	overflow-y: hidden;
 	opacity: 0;
 	height: 0;
+	z-index: -1;
 
 	&.active {
 		opacity: 1;
 		height: 73.6px;
 		padding-top: 20px;
 		padding-bottom: 20px;
+		z-index: 10000;
 	}
 }
 </style>
@@ -50,6 +51,10 @@ export default Vue.extend({
 		timeout: {
 			type: Number,
 			default: 2500
+		},
+		fontSize: {
+			type: Number,
+			default: 24
 		}
 	},
 	methods: {
