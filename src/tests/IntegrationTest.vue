@@ -12,6 +12,7 @@
 				<div class="btn-group">
 					<lm-button text="Hello" type="error" size="big" />
 				</div>
+				<lm-loader :size="20" />
 			</lm-card>
 		</div>
 		<lm-footer :partners="partners" />
@@ -27,6 +28,7 @@ import LmCard from "@/components/base/Card.vue";
 import LmNotification from "@/components/base/Notification.vue";
 import LmSeperator from "@/components/base/Seperator.vue";
 import LmButton from "@/components/base/Button.vue";
+import LmLoader from "@/components/base/Loader.vue";
 
 export default Vue.extend({
 	components: {
@@ -36,7 +38,8 @@ export default Vue.extend({
 		LmFooter,
 		LmNotification,
 		LmSeperator,
-		LmButton
+		LmButton,
+		LmLoader
 	},
 	mounted() {
 		// setInterval(() => {
