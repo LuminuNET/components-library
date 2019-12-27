@@ -50,6 +50,17 @@
 | :-------- | :--------------- | :------ | :---------------------------- |
 | highlight | false / false    | Boolean | Marks the card as highlighted |
 
+### Loader
+
+#### Props
+
+| Name          | required/default | type    | description                                                                   |
+| :------------ | :--------------- | :------ | :---------------------------------------------------------------------------- |
+| mtop          | false / 0        | Number  | Sets the top margin of the loader                                             |
+| mbottom       | false / 0        | Number  | Sets the bottom margin of the loader                                          |
+| justifyCenter | false / false    | Boolean | Declares whether the loader should be aligned to the horizontal middle or not |
+| size          | false / 24       | Number  | Sets the size of the loader                                                   |
+
 ### StickyHeader
 
 #### Props
