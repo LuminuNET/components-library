@@ -2,7 +2,18 @@
 	<div>
 		<lm-notification :active="active" :message="message" />
 		<lm-header :image="require('@/assets/style-logo.png')" />
-		<lm-sticky-header :links="links" />
+		<lm-sticky-header
+			:isLoggedIn="true"
+			:hasAvatar="true"
+			:userId="4"
+			username="Keimeno"
+			:links="links"
+			:notLoggedInAction="{action: () => $router.push({path: '/login', query: {...$route.query}})}"
+			:dropdownItems="[
+				{name: 'logout', action: () => $router.push({path: 'logout'})},
+				{name: 'okay', action: () => $router.push({path: 'okay'})}
+			]"
+		/>
 		<div class="view container">
 			<lm-card class="fake-content">
 				<h2 class="title">Hello</h2>

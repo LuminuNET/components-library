@@ -52,11 +52,36 @@
 					</div>
 				</li>
 
-				<slot>
-					<li class="user-auth">
-						<p>{{ $t('navigation.login') }}</p>
-					</li>
-				</slot>
+				<li class="user-auth">
+					<p @click="notLoggedInAction.action" v-if="!isLoggedIn">{{ $t('navigation.login') }}</p>
+					<p
+						v-else
+						@click="loggedIn.dropdownActive = true"
+						@focusout="loggedIn.dropdownActive = false"
+						tabindex="0"
+						class="dropdown user-auth__dropdown"
+					>
+						<img
+							class="user-auth__avatar"
+							:src="hasAvatar ? `https://luminu.net/data/avatars/m/0/${userId}.jpg` : 'https://luminu.net/img/noAvatar.png'"
+							alt
+						/>
+						<span class="user-auth__name">{{ username }}</span>
+					</p>
+					<div
+						v-show="dropdownItems.length"
+						class="dropdown__content"
+						:class="{ active: loggedIn.dropdownActive }"
+					>
+						<ul>
+							<li
+								v-for="(item, index) in dropdownItems"
+								:key="index"
+								@click="item.action"
+							>{{ $t('navigation.' + item.name) }}</li>
+						</ul>
+					</div>
+				</li>
 			</ul>
 		</div>
 	</nav>
@@ -80,10 +105,36 @@ export default Vue.extend({
 		active: {
 			type: Number,
 			default: -1
+		},
+		isLoggedIn: {
+			type: Boolean,
+			default: false
+		},
+		username: {
+			type: String,
+			default: ""
+		},
+		userId: {
+			type: Number,
+			default: -1
+		},
+		hasAvatar: {
+			type: Boolean,
+			default: false
+		},
+		notLoggedInAction: {
+			default: {}
+		},
+		dropdownItems: {
+			type: Array,
+			default: []
 		}
 	},
 	data: () => ({
-		notificationActive: false
+		notificationActive: false,
+		loggedIn: {
+			dropdownActive: false
+		}
 	}),
 	methods: {
 		openLink(link: TLink): void {
@@ -206,7 +257,54 @@ nav {
 				width: 100%;
 				display: flex;
 				flex-direction: row-reverse;
+				position: relative;
 
+				.user-auth__avatar {
+					width: 21px;
+					height: 21px;
+					background-color: #fff;
+					border-radius: 50%;
+					margin-right: 5px;
+					margin-bottom: -5px;
+				}
+
+				.user-auth__dropdown {
+					outline: none;
+				}
+
+				.dropdown__content {
+					opacity: 0;
+					z-index: -1;
+					background: $background;
+					position: absolute;
+					top: 100%;
+					box-shadow: 0 5px 10px 0 rgba($color: #000000, $alpha: 0.35);
+
+					ul {
+						display: flex;
+						flex-direction: column;
+
+						li {
+							margin: 0;
+							padding: 0;
+
+							font-size: 13px;
+							padding: 10px 20px 10px 17px;
+
+							cursor: pointer;
+
+							&:hover {
+								box-shadow: 3px 0px 0px inset
+									rgba($color: rgb(29, 64, 105), $alpha: 0.5);
+							}
+						}
+					}
+
+					&.active {
+						z-index: 1000;
+						opacity: 1;
+					}
+				}
 				p {
 					transition: background 0.25s ease-out;
 					background: rgba($color: #161616, $alpha: 0.15);
