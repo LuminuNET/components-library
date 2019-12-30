@@ -279,6 +279,8 @@ nav {
 					position: absolute;
 					top: 100%;
 					box-shadow: 0 5px 10px 0 rgba($color: #000000, $alpha: 0.35);
+					min-width: 150px;
+					text-align: right;
 
 					ul {
 						display: flex;
