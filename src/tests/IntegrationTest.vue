@@ -3,7 +3,7 @@
 		<lm-notification :active="active" :message="message" />
 		<lm-header :image="require('@/assets/style-logo.png')" />
 		<lm-sticky-header
-			:isLoggedIn="true"
+			:type="''"
 			:hasAvatar="true"
 			:userId="4"
 			username="Keimeno"

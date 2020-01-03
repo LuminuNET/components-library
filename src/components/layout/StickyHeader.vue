@@ -53,7 +53,13 @@
 				</li>
 
 				<li class="user-auth">
-					<p @click="notLoggedInAction.action" v-if="!isLoggedIn">{{ $t('navigation.login') }}</p>
+					<a v-if="type === 'noLogin'" target="_blank" href="https://luminu.net">
+						<img class="logo" :src="image" width="42" height="42" />
+					</a>
+					<p
+						@click="notLoggedInAction.action"
+						v-else-if="type === 'defaultLogin'"
+					>{{ $t('navigation.login') }}</p>
 					<p
 						v-else
 						@click="loggedIn.dropdownActive = true"
@@ -106,9 +112,9 @@ export default Vue.extend({
 			type: Number,
 			default: -1
 		},
-		isLoggedIn: {
-			type: Boolean,
-			default: false
+		type: {
+			type: String,
+			default: "defaultLogin"
 		},
 		username: {
 			type: String,
@@ -128,6 +134,9 @@ export default Vue.extend({
 		dropdownItems: {
 			type: Array,
 			default: []
+		},
+		image: {
+			required: false
 		}
 	},
 	data: () => ({
@@ -258,6 +267,17 @@ nav {
 				display: flex;
 				flex-direction: row-reverse;
 				position: relative;
+
+				.logo {
+					background-color: $lmColor1;
+					border-radius: 2px;
+					padding: 5px;
+					transition: background-color 0.2s;
+
+					&:hover {
+						background-color: $lmColor3;
+					}
+				}
 
 				.user-auth__avatar {
 					width: 21px;

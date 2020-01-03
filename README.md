@@ -65,16 +65,16 @@
 
 #### Props
 
-| Name              | required/default | type         | description                                                        |
-| :---------------- | :--------------- | :----------- | :----------------------------------------------------------------- |
-| links             | true             | Array(TLink) | Sets the displayed links                                           |
-| active            | false / -1       | Number       | Sets which dropdown is pressed                                     |
-| isLoggedIn        | false / false    | Boolean      | Sets whether a user is logged in or not                            |
-| username          | false / ""       | String       | Sets the displayed username                                        |
-| userId            | false / -1       | Number       | Sets the user id                                                   |
-| hasAvatar         | false / false    | Boolean      | If a user has an avatar his personal avatar will be displayed      |
-| notLoggedInAction | false / {}       | Any          | Sets login action (View integration test for implementation)       |
-| dropdownItems     | false / []       | Array        | Sets the dropdown items (View integration test for implementation) |
+| Name              | required/default       | type         | description                                                        |
+| :---------------- | :--------------------- | :----------- | :----------------------------------------------------------------- |
+| links             | true                   | Array(TLink) | Sets the displayed links                                           |
+| active            | false / -1             | Number       | Sets which dropdown is pressed                                     |
+| type              | false / 'defaultLogin' | String       | Sets the login type                                                |
+| username          | false / ""             | String       | Sets the displayed username                                        |
+| userId            | false / -1             | Number       | Sets the user id                                                   |
+| hasAvatar         | false / false          | Boolean      | If a user has an avatar his personal avatar will be displayed      |
+| notLoggedInAction | false / {}             | Any          | Sets login action (View integration test for implementation)       |
+| dropdownItems     | false / []             | Array        | Sets the dropdown items (View integration test for implementation) |
 
 ### Footer
 
