@@ -1,13 +1,7 @@
+import { footer } from '@luminu/core/translations/de';
+
 const de = {
-  footer: {
-    partner: 'Partner',
-    helpfulLinks: 'Hilfreiche Links',
-    socialMedia: 'Soziale Medien',
-    contactUs: 'Kontakt',
-    privacyPolicy: 'Datenschutz',
-    home: 'Home',
-    softwareBy: 'Software von'
-  }
+  footer,
 };
 
 export default de;

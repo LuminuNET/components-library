@@ -11,13 +11,13 @@ Vue.use(VueI18n);
 
 const messages = {
   en,
-  de
+  de,
 };
 
 const i18n = new VueI18n({
   fallbackLocale: 'en',
   locale: getLocale() === null ? 'de' : getLocale() + '',
-  messages
+  messages,
 });
 
 export default i18n;

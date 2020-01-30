@@ -107,7 +107,7 @@
     <div class="aside-content">
       <div class="container grid">
         <div class="card">
-          <p class="card__text">{{ $t('footer.softwareBy') }} Luminu &copy; 2019</p>
+          <p class="card__text">{{ $t('footer.softwareBy') }} Luminu &copy; 2019 - 2020</p>
         </div>
         <div class="card">
           <div @click="toggleLocale" class="language-select wrapper">
@@ -285,10 +285,9 @@ footer {
 
 <script lang="ts">
 import Vue from "vue";
-import {
-  getLocale,
-  toggleLocale as toggleLocaleStorage
-} from "@luminu/core/common/locale.service";
+import { Locale } from "@luminu/core";
+
+const { getLocale, toggleLocale: toggleLocaleStorage } = Locale;
 
 export default Vue.extend({
   name: "LmFooter",
