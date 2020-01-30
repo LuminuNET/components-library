@@ -4,6 +4,7 @@
     "exclude": ["**/*.json", "node_modules/**"]
   },
   "rules": {
-    "no-default-export": false
+    "no-default-export": false,
+    "interface-over-type-literal": false
   }
 }
