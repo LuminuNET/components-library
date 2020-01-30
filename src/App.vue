@@ -11,5 +11,5 @@ export default Vue.extend({});
 </script>
 
 <style lang="scss">
-@import "~@luminu/ui-kit/scss/_globals.scss";
+@import "~@luminu/core/scss/_globals.scss";
 </style>

@@ -18,7 +18,7 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
-@import "~@luminu/ui-kit/scss/_variables.scss";
+@import "~@luminu/core/scss/_variables.scss";
 
 header {
   background-color: $lmColor1;
