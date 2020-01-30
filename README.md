@@ -2,13 +2,13 @@
 
 ## Setup
 
--   npm run serve
+- npm run serve
 
 ## Deployment
 
--   npm login --scope=@luminu --registry=http://repo.luminu.net/repository/luminu-node/
--   npm run build
--   npm publish
+- npm login --scope=@luminu --registry=http://repo.luminu.net/repository/luminu-node/
+- npm run build
+- npm publish
 
 ## Documentation
 

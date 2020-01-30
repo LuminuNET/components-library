@@ -6,17 +6,17 @@ import IntegrationTest from '@/tests/IntegrationTest.vue';
 Vue.use(VueRouter);
 
 const routes = [
-	{
-		path: '/',
-		name: 'home',
-		component: IntegrationTest
-	}
+  {
+    path: '/',
+    name: 'home',
+    component: IntegrationTest
+  }
 ];
 
 const router = new VueRouter({
-	mode: 'history',
-	base: process.env.BASE_URL,
-	routes
+  mode: 'history',
+  base: process.env.BASE_URL,
+  routes
 });
 
 export default router;

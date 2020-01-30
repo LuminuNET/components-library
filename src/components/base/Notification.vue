@@ -1,33 +1,33 @@
 <template>
-	<div ref="notification" class="notification" :style="{ fontSize: fontSize + 'px' }">
-		<slot>
-			<p class="notification__content">{{ message }}</p>
-		</slot>
-	</div>
+  <div ref="notification" class="notification" :style="{ fontSize: fontSize + 'px' }">
+    <slot>
+      <p class="notification__content">{{ message }}</p>
+    </slot>
+  </div>
 </template>
 
 <style lang="scss" scoped>
 .notification {
-	position: fixed;
-	top: 0;
-	width: 100%;
-	font-size: 24px;
-	color: #202020;
-	background: rgba(226, 226, 226, 0.9);
-	padding: 20px;
-	text-align: center;
-	box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.25);
-	transition: all 0.25s ease, -xf-opacity 0.25s ease;
-	overflow-y: hidden;
-	opacity: 0;
-	z-index: -1;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  font-size: 24px;
+  color: #202020;
+  background: rgba(226, 226, 226, 0.9);
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.25);
+  transition: all 0.25s ease, -xf-opacity 0.25s ease;
+  overflow-y: hidden;
+  opacity: 0;
+  z-index: -1;
 
-	&.active {
-		opacity: 1;
-		padding-top: 20px;
-		padding-bottom: 20px;
-		z-index: 10000;
-	}
+  &.active {
+    opacity: 1;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    z-index: 10000;
+  }
 }
 </style>
 
@@ -35,48 +35,48 @@
 import Vue from "vue";
 
 export default Vue.extend({
-	name: "LmNotification",
-	props: {
-		message: {
-			type: String,
-			required: true
-		},
-		active: {
-			type: Boolean,
-			required: true
-		},
-		timeout: {
-			type: Number,
-			default: 2500
-		},
-		fontSize: {
-			type: Number,
-			default: 24
-		}
-	},
-	methods: {
-		openNotification() {
-			const notification = this.$refs.notification;
+  name: "LmNotification",
+  props: {
+    message: {
+      type: String,
+      required: true
+    },
+    active: {
+      type: Boolean,
+      required: true
+    },
+    timeout: {
+      type: Number,
+      default: 2500
+    },
+    fontSize: {
+      type: Number,
+      default: 24
+    }
+  },
+  methods: {
+    openNotification() {
+      const notification = this.$refs.notification;
 
-			// @ts-ignore
-			notification.classList.add("active");
-		},
-		closeNotification() {
-			const notification = this.$refs.notification;
+      // @ts-ignore
+      notification.classList.add("active");
+    },
+    closeNotification() {
+      const notification = this.$refs.notification;
 
-			// @ts-ignore
-			notification.classList.remove("active");
-		}
-	},
-	watch: {
-		active(newValue: boolean, oldValue: boolean) {
-			if (!oldValue && newValue) {
-				this.openNotification();
-				setTimeout(() => {
-					this.closeNotification();
-				}, this.timeout);
-			}
-		}
-	}
+      // @ts-ignore
+      notification.classList.remove("active");
+    }
+  },
+  watch: {
+    active(newValue: boolean, oldValue: boolean) {
+      if (!oldValue && newValue) {
+        this.openNotification();
+        setTimeout(() => {
+          this.closeNotification();
+        }, this.timeout);
+      }
+    }
+  }
 });
 </script>

@@ -1,33 +1,33 @@
 <template>
-	<div>
-		<lm-notification :active="active" :message="message" />
-		<lm-header :image="require('@/assets/style-logo.png')" />
-		<lm-sticky-header
-			:type="''"
-			:hasAvatar="true"
-			:userId="4"
-			username="Keimeno"
-			:links="links"
-			:notLoggedInAction="{action: () => $router.push({path: '/login', query: {...$route.query}})}"
-			:dropdownItems="[
+  <div>
+    <lm-notification :active="active" :message="message" />
+    <lm-header :image="require('@/assets/style-logo.png')" />
+    <lm-sticky-header
+      :type="''"
+      :hasAvatar="true"
+      :userId="4"
+      username="Keimeno"
+      :links="links"
+      :notLoggedInAction="{action: () => $router.push({path: '/login', query: {...$route.query}})}"
+      :dropdownItems="[
 				{name: 'logout', action: () => $router.push({path: 'logout'})},
 				{name: 'okay', action: () => $router.push({path: 'okay'})}
 			]"
-		/>
-		<div class="view container">
-			<lm-card class="fake-content">
-				<h2 class="title">Hello</h2>
-				<p class="description">Helllooooooo there</p>
-				<lm-seperator :mtop="20" :mbottom="10" />
-				<h2 class="title">Nice okay</h2>
-				<div class="btn-group">
-					<lm-button text="Hello" type="error" size="big" />
-				</div>
-				<lm-loader :size="20" />
-			</lm-card>
-		</div>
-		<lm-footer :partners="partners" />
-	</div>
+    />
+    <div class="view container">
+      <lm-card class="fake-content">
+        <h2 class="title">Hello</h2>
+        <p class="description">Helllooooooo there</p>
+        <lm-seperator :mtop="20" :mbottom="10" />
+        <h2 class="title">Nice okay</h2>
+        <div class="btn-group">
+          <lm-button text="Hello" type="error" size="big" />
+        </div>
+        <lm-loader :size="20" />
+      </lm-card>
+    </div>
+    <lm-footer :partners="partners" />
+  </div>
 </template>
 
 <script lang="ts">
@@ -42,63 +42,63 @@ import LmButton from "@/components/base/Button.vue";
 import LmLoader from "@/components/base/Loader.vue";
 
 export default Vue.extend({
-	components: {
-		LmHeader,
-		LmStickyHeader,
-		LmCard,
-		LmFooter,
-		LmNotification,
-		LmSeperator,
-		LmButton,
-		LmLoader
-	},
-	mounted() {
-		// setInterval(() => {
-		// 	this.active = true;
-		// 	setInterval(() => {
-		// 		this.active = false;
-		// 	}, 0);
-		// }, 5000);
-	},
-	data: () => ({
-		active: false,
-		message: "xImSyntax mag Brot.",
-		links: [
-			{
-				name: "overview",
-				to: "/",
-				isExternal: false,
-				hasChildren: false
-			},
-			{
-				name: "test",
-				to: "https://example.org",
-				isExternal: true,
-				hasChildren: false
-			}
-		],
-		partners: [
-			{
-				to: "https://cytooxien.de",
-				image: require("@/assets/cytooxien_banner.png")
-			}
-		]
-	})
+  components: {
+    LmHeader,
+    LmStickyHeader,
+    LmCard,
+    LmFooter,
+    LmNotification,
+    LmSeperator,
+    LmButton,
+    LmLoader
+  },
+  mounted() {
+    // setInterval(() => {
+    // 	this.active = true;
+    // 	setInterval(() => {
+    // 		this.active = false;
+    // 	}, 0);
+    // }, 5000);
+  },
+  data: () => ({
+    active: false,
+    message: "xImSyntax mag Brot.",
+    links: [
+      {
+        name: "overview",
+        to: "/",
+        isExternal: false,
+        hasChildren: false
+      },
+      {
+        name: "test",
+        to: "https://example.org",
+        isExternal: true,
+        hasChildren: false
+      }
+    ],
+    partners: [
+      {
+        to: "https://cytooxien.de",
+        image: require("@/assets/cytooxien_banner.png")
+      }
+    ]
+  })
 });
 </script>
 
 <style lang="scss" scoped>
 .fake-content {
-	height: 400px;
-	margin-bottom: 30px;
+  height: 400px;
+  margin-bottom: 30px;
 }
 
 .btn-group {
-	display: flex;
-	justify-content: flex-end;
+  display: flex;
+  justify-content: flex-end;
 
-	> div {
-		margin-left: 5px;
-	}
+  > div {
+    margin-left: 5px;
+  }
 }
 </style>
