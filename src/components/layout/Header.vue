@@ -2,23 +2,25 @@
   <header>
     <div class="container">
       <div class="branding wrapper">
-        <img :src="image" alt="Luminu" class="branding__logo" />
+        <a href="https://luminu.net/" target="_blank" rel="noopener noreferrer">
+          <img :src="image" alt="Luminu" class="branding__logo" />
+        </a>
       </div>
     </div>
   </header>
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import Vue from 'vue';
 
 export default Vue.extend({
-  name: "LmHeader",
-  props: ["image"]
+  name: 'LmHeader',
+  props: ['image'],
 });
 </script>
 
 <style lang="scss" scoped>
-@import "~@luminu/core/scss/_variables.scss";
+@import '~@luminu/core/scss/_variables.scss';
 
 header {
   background-color: $lmColor1;
