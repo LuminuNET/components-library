@@ -16,9 +16,8 @@
     "*.js"
   ],
   "dependencies": {
-    "@luminu/core": "^0.1.0",
+    "@luminu/core": "^0.5.0",
     "@luminu/types": "^1.0.0",
-    "@luminu/ui-kit": "^0.2.0",
     "core-js": "^3.4.3",
     "vue": "^2.6.10",
     "vue-class-component": "^7.0.2",
