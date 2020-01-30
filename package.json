@@ -1,10 +1,9 @@
 {
   "name": "@luminu/components",
   "version": "0.2.20",
-  "main": "./dist/luminu.common.js",
-  "types": "./src/index.d.ts",
   "scripts": {
     "serve": "vue-cli-service serve",
+    "build:web": "vue-cli-service build",
     "build": "vue-cli-service build --target lib --name luminu ./src/index.ts",
     "lint": "vue-cli-service lint --fix",
     "check": "gts check",
@@ -15,16 +14,9 @@
     "pretest": "npm run compile",
     "posttest": "npm run check"
   },
-  "files": [
-    "dist/*",
-    "src/*",
-    "public/*",
-    "*.json",
-    "*.js"
-  ],
   "dependencies": {
     "@luminu/core": "^0.5.0",
-    "@luminu/types": "^1.0.0",
+    "@luminu/types": "^1.1.0",
     "core-js": "^3.4.3",
     "vue": "^2.6.10",
     "vue-class-component": "^7.0.2",
@@ -34,14 +26,16 @@
     "vuex": "^3.1.2"
   },
   "devDependencies": {
+    "@babel/parser": "^7.8.4",
     "@types/ioredis": "^4.14.6",
-    "@types/node": "^10.0.3",
+    "@types/node": "^10.17.13",
     "@vue/cli-plugin-babel": "^4.1.0",
     "@vue/cli-plugin-typescript": "^4.1.0",
     "@vue/cli-plugin-unit-jest": "^4.1.0",
     "@vue/cli-service": "^4.1.0",
     "@vue/eslint-config-prettier": "^5.0.0",
     "@vue/eslint-config-typescript": "^4.0.0",
+    "babel-core": "^6.26.3",
     "eslint": "^5.16.0",
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-vue": "^5.0.0",
@@ -55,8 +49,5 @@
   "browserslist": [
     "> 1%",
     "last 2 versions"
-  ],
-  "jest": {
-    "preset": "@vue/cli-plugin-unit-jest/presets/typescript-and-babel"
-  }
+  ]
 }

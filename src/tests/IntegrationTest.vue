@@ -31,15 +31,15 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-import LmHeader from "@/components/layout/Header.vue";
-import LmStickyHeader from "@/components/layout/StickyHeader.vue";
-import LmFooter from "@/components/layout/Footer.vue";
-import LmCard from "@/components/base/Card.vue";
-import LmNotification from "@/components/base/Notification.vue";
-import LmSeperator from "@/components/base/Seperator.vue";
-import LmButton from "@/components/base/Button.vue";
-import LmLoader from "@/components/base/Loader.vue";
+import Vue from 'vue';
+import LmHeader from '@/components/layout/Header.vue';
+import LmStickyHeader from '@/components/layout/StickyHeader.vue';
+import LmFooter from '@/components/layout/Footer.vue';
+import LmCard from '@/components/base/Card.vue';
+import LmNotification from '@/components/base/Notification.vue';
+import LmSeperator from '@/components/base/Seperator.vue';
+import LmButton from '@/components/base/Button.vue';
+import LmLoader from '@/components/base/Loader.vue';
 
 export default Vue.extend({
   components: {
@@ -50,7 +50,7 @@ export default Vue.extend({
     LmNotification,
     LmSeperator,
     LmButton,
-    LmLoader
+    LmLoader,
   },
   mounted() {
     // setInterval(() => {
@@ -62,28 +62,28 @@ export default Vue.extend({
   },
   data: () => ({
     active: false,
-    message: "xImSyntax mag Brot.",
+    message: 'xImSyntax mag Brot.',
     links: [
       {
-        name: "overview",
-        to: "/",
+        name: 'overview',
+        to: '/',
         isExternal: false,
-        hasChildren: false
+        hasChildren: false,
       },
       {
-        name: "test",
-        to: "https://example.org",
+        name: 'test',
+        to: 'https://example.org',
         isExternal: true,
-        hasChildren: false
-      }
+        hasChildren: false,
+      },
     ],
     partners: [
       {
-        to: "https://cytooxien.de",
-        image: require("@/assets/cytooxien_banner.png")
-      }
-    ]
-  })
+        to: 'https://cytooxien.de',
+        image: require('@/assets/cytooxien_banner.png'),
+      },
+    ],
+  }),
 });
 </script>
 

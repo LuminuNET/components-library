@@ -32,41 +32,39 @@
 </style>
 
 <script lang="ts">
-import Vue from "vue";
+import Vue from 'vue';
 
 export default Vue.extend({
-  name: "LmNotification",
+  name: 'LmNotification',
   props: {
     message: {
       type: String,
-      required: true
+      required: true,
     },
     active: {
       type: Boolean,
-      required: true
+      required: true,
     },
     timeout: {
       type: Number,
-      default: 2500
+      default: 2500,
     },
     fontSize: {
       type: Number,
-      default: 24
-    }
+      default: 24,
+    },
   },
   methods: {
     openNotification() {
-      const notification = this.$refs.notification;
+      const notification = this.$refs.notification as HTMLDivElement;
 
-      // @ts-ignore
-      notification.classList.add("active");
+      notification.classList.add('active');
     },
     closeNotification() {
-      const notification = this.$refs.notification;
+      const notification = this.$refs.notification as HTMLDivElement;
 
-      // @ts-ignore
-      notification.classList.remove("active");
-    }
+      notification.classList.remove('active');
+    },
   },
   watch: {
     active(newValue: boolean, oldValue: boolean) {
@@ -76,7 +74,7 @@ export default Vue.extend({
           this.closeNotification();
         }, this.timeout);
       }
-    }
-  }
+    },
+  },
 });
 </script>

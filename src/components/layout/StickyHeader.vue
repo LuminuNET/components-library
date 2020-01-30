@@ -94,64 +94,63 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-import LmNotification from "@/components/base/Notification.vue";
-import { TLink } from "@luminu/types";
+import Vue from 'vue';
+import LmNotification from '@/components/base/Notification.vue';
+import { TLink } from '@luminu/types';
 
 export default Vue.extend({
-  name: "LmStickyHeader",
+  name: 'LmStickyHeader',
   components: {
-    LmNotification
+    LmNotification,
   },
   props: {
     links: {
       type: Array,
-      required: true
+      required: true,
     },
     active: {
       type: Number,
-      default: -1
+      default: -1,
     },
     type: {
       type: String,
-      default: "defaultLogin"
+      default: 'defaultLogin',
     },
     username: {
       type: String,
-      default: ""
+      default: '',
     },
     userId: {
       type: Number,
-      default: -1
+      default: -1,
     },
     hasAvatar: {
       type: Boolean,
-      default: false
+      default: false,
     },
     notLoggedInAction: {
-      default: {}
+      default: {},
     },
     dropdownItems: {
       type: Array,
-      default: []
+      default: [],
     },
     image: {
-      required: false
-    }
+      required: false,
+    },
   },
   data: () => ({
     notificationActive: false,
     loggedIn: {
-      dropdownActive: false
-    }
+      dropdownActive: false,
+    },
   }),
   methods: {
     openLink(link: TLink): void {
       if (link.isExternal) {
-        window.open(link.to, "_blank");
+        window.open(link.to, '_blank');
       } else {
-        // @ts-ignore
-        (this as any).$router.push({ path: link.to });
+        this.$router.push({ path: link.to });
       }
     },
     openMenu(): void {
@@ -159,13 +158,13 @@ export default Vue.extend({
       setTimeout(() => {
         this.notificationActive = false;
       }, 0);
-    }
-  }
+    },
+  },
 });
 </script>
 
 <style lang="scss" scoped>
-@import "~@luminu/core/scss/_variables.scss";
+@import '~@luminu/core/scss/_variables.scss';
 
 nav {
   position: sticky;
