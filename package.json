@@ -46,6 +46,9 @@
     "typescript": "~3.7.0",
     "vue-template-compiler": "^2.6.10"
   },
+  "files": [
+    "dist"
+  ],
   "browserslist": [
     "> 1%",
     "last 2 versions"
