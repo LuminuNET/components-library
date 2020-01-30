@@ -47,7 +47,8 @@
     "vue-template-compiler": "^2.6.10"
   },
   "files": [
-    "dist"
+    "dist",
+    "src"
   ],
   "browserslist": [
     "> 1%",
