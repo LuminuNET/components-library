@@ -17,7 +17,7 @@
     "posttest": "npm run check"
   },
   "dependencies": {
-    "@luminu/core": "^0.5.0",
+    "@luminu/core": "^0.5.1",
     "@luminu/types": "^1.1.0",
     "core-js": "^3.4.3",
     "vue": "^2.6.10",
@@ -29,8 +29,6 @@
   },
   "devDependencies": {
     "@babel/parser": "^7.8.4",
-    "@types/ioredis": "^4.14.6",
-    "@types/node": "^10.17.13",
     "@vue/cli-plugin-babel": "^4.1.0",
     "@vue/cli-plugin-typescript": "^4.1.0",
     "@vue/cli-plugin-unit-jest": "^4.1.0",

@@ -284,29 +284,29 @@ footer {
 </style>
 
 <script lang="ts">
-import Vue from "vue";
-import { Locale } from "@luminu/core";
+import Vue from 'vue';
+import { Locale } from '@luminu/core/frontend';
 
 const { getLocale, toggleLocale: toggleLocaleStorage } = Locale;
 
 export default Vue.extend({
-  name: "LmFooter",
+  name: 'LmFooter',
   data: () => ({
     currentLocale:
       getLocale() === null
-        ? "Deutsch"
-        : getLocale() === "de"
-        ? "Deutsch"
-        : "English"
+        ? 'Deutsch'
+        : getLocale() === 'de'
+        ? 'Deutsch'
+        : 'English',
   }),
   methods: {
     toggleLocale() {
       toggleLocaleStorage();
-      this.$i18n.locale = getLocale() + "";
-      this.currentLocale = getLocale() === "de" ? "Deutsch" : "English";
-    }
+      this.$i18n.locale = getLocale() + '';
+      this.currentLocale = getLocale() === 'de' ? 'Deutsch' : 'English';
+    },
   },
-  props: ["partners"]
+  props: ['partners'],
 });
 </script>
 
