@@ -4,7 +4,8 @@ import Vue from 'vue';
 import en from './en';
 import de from './de';
 
-import { getLocale } from '@luminu/core/common/locale.service';
+import { Locale } from '@luminu/core';
+const { getLocale } = Locale;
 
 Vue.use(VueI18n);
 
