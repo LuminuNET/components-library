@@ -10,7 +10,7 @@
     "lint": "vue-cli-service lint --fix",
     "check": "gts check",
     "clean": "gts clean",
-    "compile": "tsc -p .",
+    "compile": "npm run build",
     "fix": "gts fix",
     "prepare": "npm run compile",
     "pretest": "npm run compile",
