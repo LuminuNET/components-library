@@ -1,5 +1,5 @@
 module.exports = {
-  // css: { extract: false },
+  css: { extract: false },
   configureWebpack: {
     node: {
       dns: 'mock',
