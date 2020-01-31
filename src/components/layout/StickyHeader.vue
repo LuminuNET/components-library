@@ -1,25 +1,19 @@
 <template>
   <nav>
-    <lm-notification
-      message="Dieses Feature wird demnächst hinzugefügt."
-      :active="notificationActive"
-      :fontSize="30"
-    />
+    <div class="hamburger-menu__content"></div>
     <div class="container">
       <ul>
         <li @click="openMenu" class="hamburger-menu">
           <svg
             aria-hidden="true"
             focusable="false"
-            data-prefix="fas"
-            data-icon="bars"
             role="img"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 448 512"
           >
             <path
               fill="currentColor"
-              d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"
+              d="M16 132h416c1.221 0 16-7.163 16-16V76c0-1.221-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 1.221 7.163 16 16 16zm0 160h416c1.221 0 16-7.163 16-16v-40c0-1.221-7.163-16-16-16H16c-1.221 0-16 7.163-16 16v40c0 1.221 7.163 16 16 16zm0 160h416c1.221 0 16-7.163 16-16v-40c0-1.221-7.163-16-16-16H16c-1.221 0-16 7.163-16 16v40c0 1.221 7.163 16 16 16z"
             />
           </svg>
         </li>
@@ -140,7 +134,6 @@ export default Vue.extend({
     },
   },
   data: () => ({
-    notificationActive: false,
     loggedIn: {
       dropdownActive: false,
     },
@@ -153,12 +146,7 @@ export default Vue.extend({
         this.$router.push({ path: link.to });
       }
     },
-    openMenu(): void {
-      this.notificationActive = true;
-      setTimeout(() => {
-        this.notificationActive = false;
-      }, 0);
-    },
+    openMenu(): void {},
   },
 });
 </script>
