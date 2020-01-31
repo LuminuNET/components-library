@@ -25,9 +25,9 @@
         </li>
         <li v-for="(link, index) in links" :key="index">
           <div class="li-container wrapper" :class="{ active: active === index }">
-            <div class="short-link">
-              <a @click="openLink(link)">{{ $t('navigation.' + link.name) }}</a>
-            </div>
+            <a :href="link.to" @click.prevent="openLink(link)">
+              <div class="short-link">{{ $t('navigation.' + link.name) }}</div>
+            </a>
             <div
               class="dropdown-activator"
               @click="active = active === index ? -1 : index"
@@ -212,16 +212,16 @@ nav {
             background: rgba(252, 252, 252, 0.06);
           }
 
-          .short-link {
-            font-size: 15px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.25px;
-            padding: 10px 10px;
+          a {
+            text-decoration: none;
+            color: white;
 
-            a {
-              text-decoration: none;
-              color: white;
+            .short-link {
+              font-size: 15px;
+              font-weight: 700;
+              text-transform: uppercase;
+              letter-spacing: 0.25px;
+              padding: 10px 10px;
             }
           }
 
