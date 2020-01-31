@@ -1,6 +1,6 @@
 <template>
   <div>
-    <lm-notification :active="active" :message="message" />
+    <lm-notification :activity="activity" :message="message" />
     <lm-header :image="require('@/assets/style-logo.png')" />
     <lm-sticky-header
       :type="''"
@@ -21,7 +21,8 @@
         <lm-seperator :mtop="20" :mbottom="10" />
         <h2 class="title">Nice okay</h2>
         <div class="btn-group">
-          <lm-button text="Hello" type="error" size="big" />
+          <lm-button @click.native="activity++" text="Open" type="error" size="big" />
+          <lm-button @click.native="activity = -1" text="Close" type="error" size="big" />
         </div>
         <lm-loader :size="20" />
       </lm-card>
@@ -52,16 +53,8 @@ export default Vue.extend({
     LmButton,
     LmLoader,
   },
-  mounted() {
-    // setInterval(() => {
-    // 	this.active = true;
-    // 	setInterval(() => {
-    // 		this.active = false;
-    // 	}, 0);
-    // }, 5000);
-  },
   data: () => ({
-    active: false,
+    activity: 0,
     message: 'xImSyntax mag Brot.',
     links: [
       {
