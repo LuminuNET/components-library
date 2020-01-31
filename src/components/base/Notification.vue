@@ -17,7 +17,7 @@
   padding: 20px;
   text-align: center;
   box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.25);
-  transition: all 0.25s ease, -xf-opacity 0.25s ease;
+  transition: all 0.1s ease-in-out;
   overflow-y: hidden;
   opacity: 0;
   z-index: -1;
@@ -41,9 +41,9 @@ export default Vue.extend({
       type: String,
       required: true,
     },
-    active: {
-      type: Boolean,
-      required: true,
+    activity: {
+      type: Number,
+      default: 0,
     },
     timeout: {
       type: Number,
@@ -54,23 +54,54 @@ export default Vue.extend({
       default: 24,
     },
   },
+  data: () => ({
+    notification: {} as HTMLDivElement,
+    timeoutFunction: {} as number,
+  }),
   methods: {
     openNotification() {
-      const notification = this.$refs.notification as HTMLDivElement;
-
-      notification.classList.add('active');
+      this.notification.classList.add('active');
+    },
+    isActiveNotification(): boolean {
+      return this.notification.classList.contains('active');
     },
     closeNotification() {
-      const notification = this.$refs.notification as HTMLDivElement;
-
-      notification.classList.remove('active');
+      this.notification.classList.remove('active');
+    },
+    updateNotification() {
+      this.notification = this.$refs.notification as HTMLDivElement;
     },
   },
   watch: {
-    active(newValue: boolean, oldValue: boolean) {
-      if (!oldValue && newValue) {
-        this.openNotification();
-        setTimeout(() => {
+    activity(newValue, oldValue) {
+      this.updateNotification();
+
+      if (newValue < 0) {
+        /**
+         * if activity below 0, clear the remove timeout and close the function
+         */
+        clearTimeout(this.timeoutFunction);
+        this.closeNotification();
+      } else {
+        /**
+         * otherwise:
+         * 1. clear the active timeout
+         * (2.) set a new timeout
+         * 3. close the notification
+         * (4.) bind the timeout to close the notification
+         *
+         * *(n.) => instructions not instantly executed
+         */
+        clearTimeout(this.timeoutFunction);
+
+        setTimeout(
+          () => this.openNotification(),
+          this.isActiveNotification() ? 100 : 0
+        );
+
+        this.closeNotification();
+
+        this.timeoutFunction = setTimeout(() => {
           this.closeNotification();
         }, this.timeout);
       }
