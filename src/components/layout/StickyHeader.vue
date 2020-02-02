@@ -1,9 +1,30 @@
 <template>
   <nav>
-    <div class="hamburger-menu__content"></div>
+    <div class="nav__mobile" :class="{ active: mobileNavActive }">
+      <div
+        class="nav__mobile__content"
+        ref="navMobileContent"
+        @focusout="mobileNavActive = false"
+        tabindex="0"
+      >
+        <div class="perma-container">
+          <div class="nav__mobile__content--header">
+            Menu
+            <div class="close" @click="mobileNavActive = false">x</div>
+          </div>
+          <ul class="nav__mobile__content--body">
+            <li
+              @click="openLink(link.to); mobileNavActive = false"
+              v-for="(link, index) in links"
+              :key="index"
+            >{{ $t('navigation.' + link.name) }}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
     <div class="container">
       <ul>
-        <li @click="openMenu" class="hamburger-menu">
+        <li @click="mobileNavActive = true" class="hamburger-menu">
           <svg
             aria-hidden="true"
             focusable="false"
@@ -137,6 +158,7 @@ export default Vue.extend({
     loggedIn: {
       dropdownActive: false,
     },
+    mobileNavActive: false,
   }),
   methods: {
     openLink(link: TLink): void {
@@ -146,13 +168,24 @@ export default Vue.extend({
         this.$router.push({ path: link.to });
       }
     },
-    openMenu(): void {},
   },
+  watch: {
+    mobileNavActive(newValue: boolean) {
+      if (newValue) {
+        this.$refs.
+      }
+    }
+  }
 });
 </script>
 
 <style lang="scss" scoped>
 @import '~@luminu/core/scss/_variables.scss';
+
+.perma-container {
+  width: 90%;
+  margin: 0 auto;
+}
 
 nav {
   position: sticky;
@@ -162,6 +195,88 @@ nav {
   background-color: $lmColor2;
   box-shadow: 0px 5px $lmColor3;
   z-index: 100;
+
+  .nav__mobile {
+    position: fixed;
+
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    opacity: 0;
+    background-color: rgba($color: rgb(0, 0, 0), $alpha: 0.3);
+    width: 100%;
+    height: 100%;
+
+    z-index: -1;
+    transition: opacity 0.25s;
+
+    &.active {
+      .nav__mobile__content {
+        margin-left: 0px;
+      }
+    }
+
+    .nav__mobile__content {
+      width: 280px;
+      height: 100%;
+      background: $lmColor2;
+      position: relative;
+      margin-left: -280px;
+      box-shadow: 0px 0px 2px rgba($color: #000000, $alpha: 0.5);
+      transition: margin-left 0.25s;
+
+      .nav__mobile__content--header,
+      .nav__mobile__content--body li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: white;
+        height: 50px;
+      }
+
+      .nav__mobile__content--header {
+        font-size: 20px;
+
+        .close {
+          font-size: 24px;
+          font-weight: 300;
+          margin-right: 10px;
+          margin-top: -5px;
+          transform: scaleX(1.5);
+
+          &:hover,
+          &:active {
+            opacity: 0.7;
+          }
+        }
+      }
+
+      .nav__mobile__content--body {
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        margin: 0;
+
+        li {
+          font-size: 16px;
+          margin: 0;
+          width: 100%;
+          border-bottom: 1px solid $lmColor1;
+
+          &:first-child {
+            border-top: 1px solid $lmColor1;
+          }
+        }
+      }
+    }
+
+    &.active {
+      z-index: 1;
+      opacity: 1;
+    }
+  }
 
   ul {
     display: inline-flex;
