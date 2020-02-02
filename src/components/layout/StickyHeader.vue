@@ -14,7 +14,7 @@
           </div>
           <ul class="nav__mobile__content--body">
             <li
-              @click="openLink(link.to); mobileNavActive = false"
+              @click="openLink(link); mobileNavActive = false"
               v-for="(link, index) in links"
               :key="index"
             >{{ $t('navigation.' + link.name) }}</li>
