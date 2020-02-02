@@ -172,10 +172,10 @@ export default Vue.extend({
   watch: {
     mobileNavActive(newValue: boolean) {
       if (newValue) {
-        this.$refs.
+        (this.$refs.navMobileContent as HTMLDivElement).focus();
       }
-    }
-  }
+    },
+  },
 });
 </script>
 
@@ -199,26 +199,36 @@ nav {
   .nav__mobile {
     position: fixed;
 
+    opacity: 0;
+
+    z-index: -1;
+    transition: opacity 0.25s, left 0.25s;
+
     top: 0;
     bottom: 0;
-    left: 0;
+    left: -100%;
     right: 0;
 
-    opacity: 0;
-    background-color: rgba($color: rgb(0, 0, 0), $alpha: 0.3);
     width: 100%;
     height: 100%;
 
-    z-index: -1;
-    transition: opacity 0.25s;
-
     &.active {
+      z-index: 1;
+      opacity: 1;
+      left: 0;
+      width: 200%;
+      background-color: rgba($color: rgb(0, 0, 0), $alpha: 0.3);
+
       .nav__mobile__content {
         margin-left: 0px;
       }
     }
 
     .nav__mobile__content {
+      &:focus {
+        outline: none;
+      }
+
       width: 280px;
       height: 100%;
       background: $lmColor2;
@@ -270,11 +280,6 @@ nav {
           }
         }
       }
-    }
-
-    &.active {
-      z-index: 1;
-      opacity: 1;
     }
   }
 
@@ -403,6 +408,7 @@ nav {
           box-shadow: 0 5px 10px 0 rgba($color: #000000, $alpha: 0.35);
           min-width: 150px;
           text-align: right;
+          display: none;
 
           ul {
             display: flex;
@@ -427,6 +433,7 @@ nav {
           &.active {
             z-index: 1000;
             opacity: 1;
+            display: unset;
           }
         }
         p {
