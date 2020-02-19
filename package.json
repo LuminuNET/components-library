@@ -1,6 +1,6 @@
 {
   "name": "@luminu/components",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "main": "./dist/luminu.common.js",
   "types": "./src/index.d.ts",
   "scripts": {
@@ -17,7 +17,7 @@
     "posttest": "npm run check"
   },
   "dependencies": {
-    "@luminu/core": "^0.5.1",
+    "@luminu/core": "^0.5.2",
     "@luminu/types": "^1.1.0",
     "core-js": "^3.4.3",
     "vue": "^2.6.10",
