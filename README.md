@@ -83,3 +83,18 @@
 | Name     | required/default | type             | description                          |
 | :------- | :--------------- | :--------------- | :----------------------------------- |
 | partners | true             | Array(TPartners) | Sets the actively displayed partners |
+
+### Tabs
+
+#### Props
+
+| Name   | required/default | type          | description                         |
+| :----- | :--------------- | :------------ | :---------------------------------- |
+| tabs   | true             | Array(string) | Sets the name of the displayed tabs |
+| active | false / 0        | number        | Sets the currently active tab       |
+
+#### Published Events
+
+| Name           | data  | type   |
+| :------------- | :---- | :----- |
+| LM_CHANGED_TAB | index | number |
