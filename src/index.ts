@@ -9,3 +9,6 @@ export { default as LmLoader } from '@/components/base/Loader.vue';
 export { default as LmHeader } from '@/components/layout/Header.vue';
 export { default as LmStickyHeader } from '@/components/layout/StickyHeader.vue';
 export { default as LmFooter } from '@/components/layout/Footer.vue';
+export { default as LmTabs } from '@/components/layout/Tabs.vue';
+
+export { transmitter } from '@/transmitter';
