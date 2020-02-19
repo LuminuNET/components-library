@@ -5,6 +5,8 @@
   },
   "rules": {
     "no-default-export": false,
-    "interface-over-type-literal": false
+    "interface-over-type-literal": false,
+    "ban-ts-ignore": false,
+    "no-any": false
   }
 }
