@@ -137,6 +137,7 @@
 <style lang="scss" scoped>
 footer {
   color: white;
+  margin-top: auto;
 
   .main-content {
     background-color: #1e1e1e;
