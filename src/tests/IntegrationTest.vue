@@ -1,53 +1,48 @@
 <template>
   <div>
     <lm-notification :activity="activity" :message="message" />
-    <lm-header :image="require('@/assets/style-logo.png')" />
-    <lm-sticky-header
-      :type="''"
-      :hasAvatar="true"
-      :userId="4"
-      username="Keimeno"
-      :links="links"
-      :notLoggedInAction="{action: () => $router.push({path: '/login', query: {...$route.query}})}"
-      :dropdownItems="[
-				{name: 'logout', action: () => $router.push({path: 'logout'})},
-				{name: 'okay', action: () => $router.push({path: 'okay'})}
-			]"
-    />
     <div class="view container">
-      <lm-card class="fake-content">
-        <h2 class="title">Hello</h2>
-        <p class="description">Helllooooooo there</p>
-        <lm-seperator :mtop="20" :mbottom="10" />
-        <h2 class="title">Nice okay</h2>
-        <div class="btn-group">
-          <lm-button @click.native="activity++" text="Open" type="error" size="big" />
-          <lm-button @click.native="activity = -1" text="Close" type="error" size="big" />
-        </div>
-        <lm-loader :size="20" />
-      </lm-card>
+      <lm-tabs :tabs="tabs">
+        <lm-card v-if="tabsIndex === 0" class="fake-content">
+          <h2 class="title">Hello</h2>
+          <p class="description">Helllooooooo there</p>
+          <lm-seperator :mtop="20" :mbottom="10" />
+          <h2 class="title">Nice okay</h2>
+          <div class="btn-group">
+            <lm-button @click.native="activity++" text="Open" type="error" size="big" />
+            <lm-button @click.native="activity = -1" text="Close" type="error" size="big" />
+          </div>
+          <lm-loader :size="20" />
+        </lm-card>
+
+        <lm-card v-if="tabsIndex === 1" class="fake-content">
+          <h2 class="title">Good evening.</h2>
+          <p class="description">This is tab number 2. Welcome!</p>
+          <lm-seperator :mtop="20" :mbottom="10" />
+          <div class="btn-group">
+            <lm-button text="Hello" type="success" size="small" />
+            <lm-button text="Bye" type="error" size="normal" />
+          </div>
+        </lm-card>
+      </lm-tabs>
     </div>
-    <lm-footer :partners="partners" />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
-import LmHeader from '@/components/layout/Header.vue';
-import LmStickyHeader from '@/components/layout/StickyHeader.vue';
-import LmFooter from '@/components/layout/Footer.vue';
+import LmTabs from '@/components/layout/Tabs.vue';
 import LmCard from '@/components/base/Card.vue';
 import LmNotification from '@/components/base/Notification.vue';
 import LmSeperator from '@/components/base/Seperator.vue';
 import LmButton from '@/components/base/Button.vue';
 import LmLoader from '@/components/base/Loader.vue';
+import transmitter from '../transmitter';
 
 export default Vue.extend({
   components: {
-    LmHeader,
-    LmStickyHeader,
     LmCard,
-    LmFooter,
+    LmTabs,
     LmNotification,
     LmSeperator,
     LmButton,
@@ -55,28 +50,17 @@ export default Vue.extend({
   },
   data: () => ({
     activity: 0,
+    tabsIndex: 0,
     message: 'xImSyntax mag Brot.',
-    links: [
-      {
-        name: 'overview',
-        to: '/',
-        isExternal: false,
-        hasChildren: false,
-      },
-      {
-        name: 'test',
-        to: 'https://example.org',
-        isExternal: true,
-        hasChildren: false,
-      },
-    ],
-    partners: [
-      {
-        to: 'https://cytooxien.de',
-        image: require('@/assets/cytooxien_banner.png'),
-      },
-    ],
+    tabs: ['tab1', 'tab2', 'tab3'],
   }),
+  mounted() {
+    setTimeout(() => {
+      transmitter.$on('LM_CHANGED_TAB', (index: number) => {
+        this.tabsIndex = index;
+      });
+    }, 0);
+  },
 });
 </script>
 
