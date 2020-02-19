@@ -11,7 +11,8 @@
     "importHelpers": true,
     "moduleResolution": "node",
     "types": ["webpack-env", "jest"],
-    "lib": ["esnext", "dom", "dom.iterable", "scripthost", "ES2015"],
+    "skipLibCheck": true,
+    "lib": ["esnext", "dom", "dom.iterable", "scripthost", "ES2018"],
     "paths": {
       "@/*": ["src/*"]
     }
