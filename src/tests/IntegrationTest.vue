@@ -1,6 +1,7 @@
 <template>
   <div>
     <lm-notification :activity="activity" :message="message" />
+    <lm-alert :active="active" title="Shalom" :message="message" />
     <div class="view container">
       <lm-tabs :tabs="tabs">
         <lm-card v-if="tabsIndex === 0" class="fake-content">
@@ -37,6 +38,7 @@ import LmNotification from '@/components/base/Notification.vue';
 import LmSeperator from '@/components/base/Seperator.vue';
 import LmButton from '@/components/base/Button.vue';
 import LmLoader from '@/components/base/Loader.vue';
+import LmAlert from '@/components/base/Alert.vue';
 import transmitter from '../transmitter';
 
 export default Vue.extend({
@@ -47,12 +49,14 @@ export default Vue.extend({
     LmSeperator,
     LmButton,
     LmLoader,
+    LmAlert,
   },
   data: () => ({
     activity: 0,
     tabsIndex: 0,
     message: 'xImSyntax mag Brot.',
     tabs: ['tab1', 'tab2', 'tab3'],
+    active: true,
   }),
   mounted() {
     setTimeout(() => {
