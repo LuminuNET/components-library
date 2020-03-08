@@ -4,6 +4,7 @@ export { default as LmNotification } from '@/components/base/Notification.vue';
 export { default as LmSeperator } from '@/components/base/Seperator.vue';
 export { default as LmButton } from '@/components/base/Button.vue';
 export { default as LmLoader } from '@/components/base/Loader.vue';
+export { default as LmAlert } from '@/components/base/Alert.vue';
 
 // Layout components
 export { default as LmHeader } from '@/components/layout/Header.vue';

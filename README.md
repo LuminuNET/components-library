@@ -61,6 +61,14 @@
 | justifyCenter | false / false    | Boolean | Declares whether the loader should be aligned to the horizontal middle or not |
 | size          | false / 24       | Number  | Sets the size of the loader                                                   |
 
+### Alert
+
+#### Published Events
+
+| Name              | data   | type                                                   |
+| :---------------- | :----- | :----------------------------------------------------- |
+| LM_ALERT_RESPONSE | status | { isSuccess: boolean, message: string, title: string } |
+
 ### StickyHeader
 
 #### Props

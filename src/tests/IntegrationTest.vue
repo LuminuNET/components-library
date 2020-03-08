@@ -1,7 +1,7 @@
 <template>
   <div>
     <lm-notification :activity="activity" :message="message" />
-    <lm-alert :active="active" title="Shalom" :message="message" />
+    <lm-alert :active="active" :message="message" />
     <div class="view container">
       <lm-tabs :tabs="tabs">
         <lm-card v-if="tabsIndex === 0" class="fake-content">
@@ -12,6 +12,7 @@
           <div class="btn-group">
             <lm-button @click.native="activity++" text="Open" type="error" size="big" />
             <lm-button @click.native="activity = -1" text="Close" type="error" size="big" />
+            <lm-button @click.native="active = true" text="Alert" size="big" />
           </div>
           <lm-loader :size="20" />
         </lm-card>
@@ -54,7 +55,8 @@ export default Vue.extend({
   data: () => ({
     activity: 0,
     tabsIndex: 0,
-    message: 'xImSyntax mag Brot.',
+    message:
+      'Description text here. Lorem ipsum dolor isit wakdmawm idwa iwd iawjdi jwoi jawdiojw iodj awidwd.',
     tabs: ['tab1', 'tab2', 'tab3'],
     active: true,
   }),
@@ -64,6 +66,13 @@ export default Vue.extend({
         this.tabsIndex = index;
       });
     }, 0);
+
+    transmitter.$on(
+      'LM_ALERT_RESPONSE',
+      (status: { isSuccess: boolean; message: string; title: string }) => {
+        this.active = false;
+      }
+    );
   },
 });
 </script>

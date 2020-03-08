@@ -2,11 +2,7 @@ import { footer, alert } from '@luminu/core/translations/en';
 
 const en = {
   footer,
-  alert: {
-    alert: 'Alert',
-    continue: 'Continues',
-    cancel: 'Cancel',
-  },
+  alert,
   tabs: {
     tab1: 'Tab1',
     tab2: 'Tab2',

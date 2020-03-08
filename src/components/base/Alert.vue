@@ -10,8 +10,18 @@
         <div class="bottom">
           <lm-seperator />
           <div class="btn-group">
-            <lm-button :text="$t('alert.cancel')" type="error" size="big" />
-            <lm-button :text="$t('alert.continue')" type="success" size="big" />
+            <lm-button
+              @click.native="sendAlertResponse('cancel');"
+              :text="$t('alert.cancel')"
+              type="error"
+              size="big"
+            />
+            <lm-button
+              @click.native="sendAlertResponse('continue');"
+              :text="$t('alert.continue')"
+              type="success"
+              size="big"
+            />
           </div>
         </div>
       </lm-card>
@@ -33,6 +43,11 @@ export default Vue.extend({
     LmSeperator,
     LmButton,
   },
+  data: () => ({
+    status: {
+      isSuccess: false,
+    } as any,
+  }),
   props: {
     active: {
       type: Boolean,
@@ -47,6 +62,28 @@ export default Vue.extend({
       default: 'areYouSure',
     },
   },
+  methods: {
+    sendAlertResponse(type: 'cancel' | 'continue') {
+      switch (type) {
+        case 'cancel':
+          this.status.isSuccess = false;
+          break;
+        case 'continue':
+        default:
+          // why is this tslint rule even a thing?
+          this.status.isSuccess = true;
+          break;
+      }
+
+      this.status = {
+        ...this.status,
+        message: this.message,
+        title: this.title,
+      };
+
+      transmitter.$emit('LM_ALERT_RESPONSE', this.status);
+    },
+  },
 });
 </script>
 
@@ -54,7 +91,8 @@ export default Vue.extend({
 @import '~@luminu/core/scss/variables';
 
 .alert:not(.active) {
-  display: none;
+  opacity: 0;
+  z-index: -1;
 }
 
 .alert {
@@ -64,6 +102,7 @@ export default Vue.extend({
   bottom: 0;
   left: 0;
   right: 0;
+  transition: 0.1s opacity;
 
   .overlay {
     position: fixed;
@@ -85,7 +124,8 @@ export default Vue.extend({
     .card {
       width: 320px;
       min-height: 180px;
-      // display: flex;
+      opacity: 0;
+      position: relative;
 
       @media screen and (max-width: $breakpoint) {
         width: 100%;
@@ -105,6 +145,10 @@ export default Vue.extend({
         }
       }
     }
+  }
+
+  &.active .card {
+    opacity: 1;
   }
 }
 </style>
