@@ -3,20 +3,20 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import Vue from 'vue';
 
 export default Vue.extend({
-  name: "LmSeperator",
+  name: 'LmSeperator',
   props: {
     mtop: {
       type: Number,
-      default: 5
+      default: 5,
     },
     mbottom: {
       type: Number,
-      default: 5
-    }
-  }
+      default: 5,
+    },
+  },
 });
 </script>
 
@@ -24,9 +24,8 @@ export default Vue.extend({
 .seperator {
   position: relative;
   width: calc(100% + 20px);
-  height: 1px;
+  border-bottom: 1px solid #bbb;
 
-  background-color: #bbb;
   margin-left: -10px;
   margin-bottom: 5px;
 }
