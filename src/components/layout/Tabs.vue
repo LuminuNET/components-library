@@ -26,17 +26,6 @@
     margin-left: -10px;
     user-select: none;
 
-    @media screen and (max-width: $breakpoint) {
-      margin-left: 0px;
-      width: 100%;
-      justify-content: space-between;
-
-      .tabs__item {
-        width: 100%;
-        text-align: center;
-      }
-    }
-
     .tabs__item {
       font-size: 18px;
       text-transform: uppercase;
@@ -58,6 +47,18 @@
         color: white;
         background: rgba($color: $lmColor2, $alpha: 1);
         border-bottom: 3px solid $lmColor3;
+      }
+    }
+
+    @media screen and (max-width: $breakpoint) {
+      margin-left: 0px;
+      width: 100%;
+      justify-content: space-between;
+
+      .tabs__item {
+        width: 100%;
+        text-align: center;
+        padding: 0px;
       }
     }
   }
