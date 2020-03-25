@@ -11,7 +11,13 @@
           <h2 class="title">Nice okay</h2>
           <div class="btn-group">
             <lm-button @click.native="activity++" text="Open" type="error" size="big" />
-            <lm-button @click.native="activity = -1" text="Close" type="error" size="big" />
+            <lm-button
+              @click.native="activity = -1"
+              :disabled="true"
+              text="Close"
+              type="error"
+              size="big"
+            />
             <lm-button @click.native="active = true" text="Alert" size="big" />
           </div>
           <lm-loader :size="20" />
@@ -58,14 +64,12 @@ export default Vue.extend({
     message:
       'Description text here. Lorem ipsum dolor isit wakdmawm idwa iwd iawjdi jwoi jawdiojw iodj awidwd.',
     tabs: ['tab1', 'tab2', 'tab3'],
-    active: true,
+    active: false,
   }),
   mounted() {
-    setTimeout(() => {
-      transmitter.$on('LM_CHANGED_TAB', (index: number) => {
-        this.tabsIndex = index;
-      });
-    }, 0);
+    transmitter.$on('LM_CHANGED_TAB', (index: number) => {
+      this.tabsIndex = index;
+    });
 
     transmitter.$on(
       'LM_ALERT_RESPONSE',

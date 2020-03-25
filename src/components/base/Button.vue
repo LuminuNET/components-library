@@ -1,36 +1,46 @@
 <template>
   <div
     class="btn"
-    :class="{ success: type === 'success', error: type === 'error', big: size === 'big', small: size === 'small' }"
+    :class="{ 
+      success: type === 'success', 
+      error: type === 'error', 
+      big: size === 'big', 
+      small: size === 'small',
+      disabled: disabled
+    }"
   >
     <p class="btn__content">{{ text }}</p>
   </div>
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import Vue from 'vue';
 
 export default Vue.extend({
-  name: "LmButton",
+  name: 'LmButton',
   props: {
     text: {
       type: String,
-      required: true
+      required: true,
     },
     size: {
       type: String,
-      default: "normal"
+      default: 'normal',
     },
     type: {
       type: String,
-      default: "normal"
-    }
-  }
+      default: 'normal',
+    },
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
+  },
 });
 </script>
 
 <style lang="scss" scoped>
-@import "~@luminu/core/scss/_variables.scss";
+@import '~@luminu/core/scss/_variables.scss';
 
 .btn {
   padding: 2px 10px;
@@ -42,7 +52,7 @@ export default Vue.extend({
   color: white;
 
   background-color: $lmColor2;
-  box-shadow: 0px 2px rgba($color: $lmColor3, $alpha: 1);
+  box-shadow: 0px 3px rgba($color: $lmColor3, $alpha: 1);
   transition: background-color 0.1s ease-out;
 
   &.big {
@@ -73,6 +83,12 @@ export default Vue.extend({
     &:hover {
       background-color: $lmErrorDarken;
     }
+  }
+
+  &.disabled {
+    filter: saturate(0);
+    opacity: 0.8;
+    pointer-events: none;
   }
 }
 </style>

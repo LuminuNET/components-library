@@ -16,11 +16,12 @@
 
 #### Props
 
-| Name | required/default | type   | description                             |
-| :--- | :--------------- | :----- | :-------------------------------------- |
-| text | true             | String | Sets the button's text                  |
-| size | false / normal   | String | Sets the button's size (small, big)     |
-| type | false / normal   | String | Sets the button's type (success, error) |
+| Name     | required/default | type    | description                             |
+| :------- | :--------------- | :------ | :-------------------------------------- |
+| text     | true             | String  | Sets the button's text                  |
+| size     | false / normal   | String  | Sets the button's size (small, big)     |
+| type     | false / normal   | String  | Sets the button's type (success, error) |
+| disabled | false / false    | Boolean | Sets the button's disabled state        |
 
 ### Seperator
 
