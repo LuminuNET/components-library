@@ -20,7 +20,7 @@
     "@luminu/core": "^0.5.3",
     "@luminu/types": "^1.1.0",
     "core-js": "^3.4.3",
-    "vue": "^2.6.10",
+    "vue": "^3.0.0",
     "vue-class-component": "^7.0.2",
     "vue-i18n": "^8.15.3",
     "vue-property-decorator": "^8.3.0",
